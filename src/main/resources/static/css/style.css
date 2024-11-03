@@ -1,0 +1,561 @@
+
+
+/* Reset y estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+}
+
+/* Header */
+header {
+    background-color: #ff8587;
+    color: white;
+    text-align: center;
+    padding: 30px 0;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+/* Navegación */
+nav {
+    background-color: white;
+    padding: 15px 0;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+nav a {
+    text-decoration: none;
+    color: #666;
+    margin: 0 15px;
+}
+
+.cerrar-sesion {
+    background-color: #ff8587;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+
+
+/* Búsqueda */
+.search-container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* Sección de recetas */
+.recetas-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* Tarjetas de recetas */
+.recipe-card {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.recipe-card h3 {
+    color: #333;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+/* Etiquetas */
+.tag-container {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.tag {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* Colores específicos para cada etiqueta */
+.francesa {
+    background-color: #e3f2fd;
+    color: #7b1fa2
+}
+
+
+/* Colores específicos para cada etiqueta */
+.italiana {
+    background-color: #e3f2fd;
+    color: #1976d2;
+}
+
+.india {
+    background-color: #fce4ec;
+    color: #c2185b;
+}
+
+.mexicana {
+    background-color: #f1f8e9;
+    color: #689f38;
+}
+
+.media {
+    background-color: #fff3e0;
+    color: #f57c00;
+}
+
+.facil {
+    background-color: #e8f5e9;
+    color: #388e3c;
+}
+
+.dificil {
+    background-color: #ffebee;  
+    color: #d32f2f;
+}
+
+/* Descripción */
+.recipe-description {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 15px 0;
+}
+
+/* Botón Ver Receta */
+.ver-receta {
+    display: inline-block;
+    background-color: #ff8587;
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+}
+
+.ver-receta:hover {
+    background-color: #ff7173;
+}
+
+/* Estilos para el login */
+.login-container {
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 0 20px;
+}
+
+.login-box {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.login-box h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 24px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    color: #666;
+    font-size: 14px;
+}
+
+.form-group input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 100%;
+}
+
+.form-group input:focus {
+    border-color: #ff8587;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(255,133,135,0.2);
+}
+
+.login-button {
+    background-color: #ff8587;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.login-button:hover {
+    background-color: #ff7173;
+}
+
+.form-footer {
+    text-align: center;
+    margin-top: 20px;
+}
+.tiempo-corto {
+    background-color: #e8f5e9; /* Verde claro */
+    color: #388e3c;
+}
+
+.tiempo-medio {
+    background-color: #fff3e0; /* Naranja claro */
+    color: #f57c00;
+}
+
+.tiempo-largo {
+    background-color: #ffebee; /* Rojo claro */
+    color: #c62828;
+}
+.back-link {
+    color: #666;
+    text-decoration: none;
+    font-size: 14px;
+}
+body, h1, h2, h3, p, span, pre {
+    font-family: Arial, sans-serif;
+   
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+.recipe-image {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 8px;
+    margin: 20px 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* Mensajes de error */
+.alert {
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.alert-error {
+    background-color: #ffebee;
+    color: #c62828;
+    border: 1px solid #ffcdd2;
+}
+
+.alert-success {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #c8e6c9;
+}
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    color: #666;
+    font-size: 14px;
+    background-color: #f8f8f8;
+}
+
+
+/* Ajustes responsivos */
+@media (max-width: 480px) {
+    .login-container {
+        margin: 1rem auto;
+    }
+    
+    .login-box {
+        padding: 20px;
+    }
+}
+.recipe-detail {
+    max-width: 800px;
+    margin: 20px auto;
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.recipe-header h2 {
+    color: #333;
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.recipe-info .tag {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #f3f3f3;
+    color: #666;
+}
+
+.recipe-body section {
+    margin-top: 20px;
+}
+
+.recipe-body h3 {
+    color: #ff8587;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.tiempo-corto {
+    background-color: #e8f5e9; /* Verde claro */
+    color: #388e3c;
+}
+
+.tiempo-medio {
+    background-color: #fff3e0; /* Naranja claro */
+    color: #f57c00;
+}
+
+.tiempo-largo {
+    background-color: #ffebee; /* Rojo claro */
+    color: #c62828;
+}
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #f8f8f8; /* Ajusta el color según el diseño */
+}
+
+.nav-links a {
+    margin-right: 15px;
+    text-decoration: none;
+    color: #333; /* Color de los enlaces */
+}
+
+.auth-button {
+    margin-left: auto;
+}
+
+.cerrar-sesion {
+    background-color: #ff6b6b; /* Ajusta el color del botón */
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+/* Ajustes para el formulario de registro */
+.registro-container {
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 0 20px;
+}
+
+.registro-box {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.registro-box h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.registro-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.registro-form .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.registro-form label {
+    color: #666;
+    font-size: 14px;
+}
+
+.registro-form input[type="text"],
+.registro-form input[type="password"] {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 100%;
+}
+
+.registro-form input:focus {
+    border-color: #ff8587;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(255, 133, 135, 0.2);
+}
+
+.registro-button {
+    background-color: #ff8587;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.registro-button:hover {
+    background-color: #ff7173;
+}
+
+.registro-footer {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.registro-footer a {
+    color: #ff8587;
+    text-decoration: none;
+}
+
+.registro-footer a:hover {
+    text-decoration: underline;
+}
+/* Estilos para los botones de autenticación */
+/* Contenedor de navegación */
+.nav-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 0;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    width: 100%;
+}
+
+/* Enlaces de navegación */
+.nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #666;
+    padding: 5px 10px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #ff8587;
+}
+
+/* Contenedor de autenticación centrado */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 10px 0;
+}
+
+/* Botón de autenticación */
+.auth-button {
+    background-color: #ff8587;
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    min-width: 120px;
+    text-align: center;
+}
+
+.auth-button:hover {
+    background-color: #ff7173;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+    }
+
+    .nav-links {
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Mi Libro de Recetas</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div th:insert="fragments/navbar :: navbar"></div>
+
+    <div class="search-container">
+        <input type="text" 
+               id="searchInput" 
+               placeholder="Buscar recetas..." 
+               class="search-input"
+               onkeyup="buscarRecetas(this.value)">
+    </div>
+
+    <section class="recetas-section">
+        <h2>Recetas Recientes</h2>
+        <div id="recetas-container" class="recipe-grid">
+            <!-- Las recetas se cargarán aquí -->
+            <div th:each="receta : ${recetasRecientes}" class="recipe-card">
+                <h3 th:text="${receta.nombre}">Nombre de la Receta</h3>
+                <div class="tag-container">
+                    <span th:text="${receta.tipoCocina}" 
+                          th:class="${'tag ' + receta.tipoCocina.toLowerCase()}">
+                        Tipo de Cocina
+                    </span>
+                    <span th:text="${receta.dificultad}"
+                          th:class="${'tag ' + receta.dificultad.toLowerCase()}">
+                        Dificultad
+                    </span>
+                    <span th:text="${receta.tiempoPreparacion + ' min'}"
+                          th:class="${'tag ' + (receta.tiempoPreparacion <= 30 ? 'tiempo-corto' : 
+                                          receta.tiempoPreparacion <= 60 ? 'tiempo-medio' : 'tiempo-largo')}">
+                        Tiempo
+                    </span>
+                </div>
+                <p class="recipe-description" th:text="${receta.descripcion}">
+                    Descripción de la receta
+                </p>
+                <a th:href="@{/recetas/{id}(id=${receta.id})}" class="ver-receta">Ver Receta</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+    let timeoutId;
+
+    function buscarRecetas(searchTerm) {
+        clearTimeout(timeoutId);
+        
+        timeoutId = setTimeout(() => {
+            // Construir la URL con el término de búsqueda
+            const url = searchTerm.trim() === '' 
+                ? '/buscarRecetas' 
+                : `/buscarRecetas?nombre=${encodeURIComponent(searchTerm)}`;
+            
+            // Realizar la búsqueda
+            fetch(url)
+                .then(response => response.text())
+                .then(html => {
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, 'text/html');
+                    const nuevasRecetas = doc.querySelector('.recipe-grid');
+                    
+                    if (nuevasRecetas) {
+                        document.getElementById('recetas-container').innerHTML = nuevasRecetas.innerHTML;
+                    } else {
+                        console.error('No se encontró el contenedor de recetas en la respuesta');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error al buscar recetas:', error);
+                });
+        }, 150); // Esperar 300ms después de la última tecla presionada
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <div th:fragment="navbar">
+        <header>
+            <h1>Mi Libro de Recetas</h1>
+            <p>Descubre deliciosas recetas para toda ocasión</p>
+        </header>
+
+        <nav class="nav-links">
+            <a th:href="@{/home}">Inicio</a>
+            <a th:href="@{/buscar}">Buscar</a>
+            <a th:href="@{/mis-recetas}">Mis Recetas</a>
+            
+            <div sec:authorize="!isAuthenticated()">
+                <a th:href="@{/login}" class="auth-button">Iniciar Sesión</a>
+            </div>
+            
+            <div sec:authorize="isAuthenticated()">
+                <form th:action="@{/logout}" method="post" style="display: inline;">
+                    <button type="submit" class="auth-button">Cerrar Sesión</button>
+                </form>
+            </div>
+        </nav>
+    </div>
+</body>
+</html>

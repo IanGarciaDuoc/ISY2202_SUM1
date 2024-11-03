@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <div th:fragment="recetasList" class="recipe-grid">
+        <div th:each="receta : ${recetasRecientes}" class="recipe-card">
+            <h3 th:text="${receta.nombre}">Nombre de la Receta</h3>
+            <div class="tag-container">
+                <span th:if="${receta.tipoCocina}" 
+                      th:text="${receta.tipoCocina}"
+                      th:class="${'tag ' + receta.tipoCocina.toLowerCase()}">
+                    Tipo de Cocina
+                </span>
+                <span th:if="${receta.dificultad}"
+                      th:text="${receta.dificultad}"
+                      th:class="${'tag ' + receta.dificultad.toLowerCase()}">
+                    Dificultad
+                </span>
+                <span th:if="${receta.tiempoPreparacion}"
+                      th:text="${receta.tiempoPreparacion + ' min'}"
+                      th:class="${'tag ' + (receta.tiempoPreparacion <= 30 ? 'tiempo-corto' : 
+                                      receta.tiempoPreparacion <= 60 ? 'tiempo-medio' : 'tiempo-largo')}">
+                    Tiempo
+                </span>
+            </div>
+            <p class="recipe-description" th:text="${receta.descripcion}">
+                Descripción de la receta
+            </p>
+            <a th:href="@{/recetas/{id}(id=${receta.id})}" class="ver-receta">Ver Receta</a>
+        </div>
+    </div>
+</body>
+</html>
